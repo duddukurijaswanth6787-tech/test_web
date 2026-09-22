@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-[#FAF8F5] text-stone-900;
+  }
+}
+
+/* Luxury Light Admin UI Styling */
+.boutique-admin-wrapper h2 {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  letter-spacing: -0.02em !important;
+}
+
+.boutique-admin-wrapper button {
+  border-radius: 0.75rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.boutique-admin-wrapper input {
+  border-radius: 0.75rem !important;
+  border-color: #e2e8f0 !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.boutique-admin-wrapper input:focus {
+  border-color: #6366f1 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+}
