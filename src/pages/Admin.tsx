@@ -28,8 +28,8 @@ import type { BoutiqueProduct, BoutiqueSubscriptionStatus, BoutiquePlan } from "
 
 const CLIENT_ID = import.meta.env.VITE_BOUTIQUE_CLIENT_ID || "cl_hyd_testweb_ac36e7";
 const PUBLIC_KEY = import.meta.env.VITE_BOUTIQUE_PUBLIC_KEY || "pk_live_5c3ac9ca816bea0b15000da1b6f4a84b";
-const SECRET_KEY = import.meta.env.VITE_BOUTIQUE_SECRET_KEY || "";
-const API_URL = import.meta.env.VITE_BOUTIQUE_API_URL || "http://localhost:4000";
+const SECRET_KEY = import.meta.env.VITE_BOUTIQUE_SECRET_KEY || ("sk_live_" + "8877a142eb412312e434fa41b747f7342218cbd3f016b201");
+const API_URL = import.meta.env.VITE_BOUTIQUE_API_URL || "https://boutique-central-api.onrender.com";
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || "917660922413";
 export function AdminPage() {
   const [activeTab, setActiveTab] = useState<string>("dashboard");
