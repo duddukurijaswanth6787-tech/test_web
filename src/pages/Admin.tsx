@@ -110,8 +110,8 @@ export function AdminPage() {
   };
 
   useEffect(() => {
-    // Ensure SDK instance is attached
-    if (!window.boutique && window.BoutiqueSDK) {
+    // Ensure SDK instance is configured with Admin Secret Key for store owner uploads
+    if (window.BoutiqueSDK) {
       window.boutique = new window.BoutiqueSDK({
         clientId: CLIENT_ID,
         publicKey: PUBLIC_KEY,
@@ -120,6 +120,8 @@ export function AdminPage() {
         whatsappNumber: WHATSAPP_PHONE,
         debug: true
       });
+    } else if (window.boutique?.config) {
+      window.boutique.config.secretKey = SECRET_KEY;
     }
 
     fetchSubscriptionStatus();
@@ -165,10 +167,14 @@ export function AdminPage() {
       setUploading(true);
       setUploadProgress(10);
 
+      if (window.boutique?.config) {
+        window.boutique.config.secretKey = SECRET_KEY;
+        window.boutique.config.apiUrl = API_URL;
+      }
+
       if (!window.boutique?.storage?.upload) {
         throw new Error("BoutiqueCore storage upload method not available.");
       }
-
       const priceNum = uploadPrice ? parseFloat(uploadPrice) : undefined;
 
       await window.boutique.storage.upload(uploadFile, {
